@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>A22 Investments — Dos direcciones</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #f0eee9; font-family: -apple-system, "Segoe UI", system-ui, sans-serif; }
+  .a22-intro {
+    padding: 40px 60px 0;
+    max-width: 980px;
+  }
+  .a22-intro-eyebrow {
+    font-family: ui-monospace, "Geist Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #0E6E8F;
+    margin-bottom: 14px;
+  }
+  .a22-intro h1 {
+    font-family: "Bricolage Grotesque", -apple-system, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: -0.025em;
+    line-height: 1.04;
+    margin: 0 0 14px;
+    color: #1a1a1a;
+  }
+  .a22-intro p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(60,50,40,0.78);
+    max-width: 68ch;
+    margin: 0 0 8px;
+  }
+  .a22-intro .a22-tip {
+    margin-top: 14px;
+    font-size: 12px;
+    color: rgba(60,50,40,0.55);
+    font-family: ui-monospace, monospace;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+
+<script type="text/babel">
+function Intro() {
+  return (
+    <div className="a22-intro">
+      <div className="a22-intro-eyebrow">A22 INVESTMENTS · WEB DE PRESENTACIÓN · 2 DIRECCIONES</div>
+      <h1>Dos lecturas de la misma operación.</h1>
+      <p>
+        Mismo contenido, mismo idioma (toggle ES/EN dentro de cada prototipo), misma navegación de 5 secciones.
+        Lo que cambia es el lenguaje visual. Cada artboard es un prototipo navegable completo — abre en pantalla completa
+        con el icono <strong>⛶</strong> para explorar todas las páginas.
+      </p>
+      <p className="a22-tip">↳ Arrastra para mover · Rueda + ⌘/Ctrl para zoom · ⛶ para pantalla completa · ←/→/Esc dentro del foco</p>
+    </div>
+  );
+}
+
+function Frame({ src }) {
+  return (
+    <iframe
+      src={src}
+      style={{
+        width: "100%",
+        height: "100%",
+        border: "none",
+        display: "block",
+        background: "white",
+      }}
+      title={src}
+    />
+  );
+}
+
+function App() {
+  return (
+    <DesignCanvas>
+      <DCSection
+        id="hero"
+        title="A22 Investments — Web de presentación"
+        subtitle="Dos direcciones para el mismo brief naval. A: sitio premium B2B en 4 idiomas (ES/EN/PT/NL). B: editorial naval con blueprints. Cada prototipo es navegable.">
+        <DCArtboard
+          id="version-a"
+          label="A · Operations  —  premium B2B naval, hero a sangre, 4 idiomas (ES/EN/PT/NL)"
+          width={1440}
+          height={900}>
+          <Frame src="version-a/index.html" />
+        </DCArtboard>
+        <DCArtboard
+          id="version-b"
+          label="B · Trade Bureau  —  editorial naval, papel + blueprint de buque"
+          width={1440}
+          height={900}>
+          <Frame src="version-b/index.html" />
+        </DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
