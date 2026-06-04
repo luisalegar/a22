@@ -61,6 +61,8 @@ function LangMenu({ lang, setLang }) {
 // ── Top bar
 function TopBar({ page, setPage, lang, setLang }) {
   const sections = ["home", "about", "services", "products", "contact"];
+  const [menuOpen, setMenuOpen] = useState(false);
+  const go = (s) => { setPage(s); setMenuOpen(false); };
   return (
     <header className="ops-top">
       <div className="ops-top-marquee" aria-hidden="true">
@@ -70,7 +72,7 @@ function TopBar({ page, setPage, lang, setLang }) {
         <span className="ops-marq-sep">·</span> {tt(A.hero.eyebrow, lang)}
       </div>
       <div className="ops-top-inner">
-        <button className="ops-brand" onClick={() => setPage("home")}>
+        <button className="ops-brand" onClick={() => go("home")}>
           <LogoMark size={26} />
           <span className="ops-brand-name">A22<span className="ops-brand-thin">INVESTMENTS</span></span>
         </button>
@@ -80,7 +82,7 @@ function TopBar({ page, setPage, lang, setLang }) {
             <button
               key={s}
               className={`ops-nav-item ${page === s ? "is-active" : ""}`}
-              onClick={() => setPage(s)}>
+              onClick={() => go(s)}>
               {tt(A.nav[s], lang)}
             </button>
           ))}
@@ -88,10 +90,29 @@ function TopBar({ page, setPage, lang, setLang }) {
 
         <div className="ops-top-right">
           <LangMenu lang={lang} setLang={setLang} />
-          <button className="ops-cta-sm" onClick={() => setPage("contact")}>
+          <button className="ops-cta-sm" onClick={() => go("contact")}>
             {tt(A.cta.quoteShort, lang)} <span aria-hidden>→</span>
           </button>
+          <button className="ops-burger" aria-label="Menu" aria-expanded={menuOpen}
+                  onClick={() => setMenuOpen(o => !o)}>
+            <span className={`ops-burger-ico ${menuOpen ? "is-open" : ""}`}><i></i><i></i><i></i></span>
+          </button>
         </div>
+      </div>
+
+      <div className={`ops-mobile-nav ${menuOpen ? "is-open" : ""}`}>
+        {sections.map((s, i) => (
+          <button key={s}
+            className={`ops-mobile-link ${page === s ? "is-on" : ""}`}
+            onClick={() => go(s)}>
+            <span className="ops-mono ops-dim">{String(i + 1).padStart(2, "0")}</span>
+            <span>{tt(A.nav[s], lang)}</span>
+            <span aria-hidden>→</span>
+          </button>
+        ))}
+        <button className="ops-mobile-cta" onClick={() => go("contact")}>
+          {tt(A.cta.quoteShort, lang)} <span aria-hidden>→</span>
+        </button>
       </div>
     </header>
   );

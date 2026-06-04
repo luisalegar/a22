@@ -17,6 +17,8 @@ function TBLogoMark({ size = 28 }) {
 // ── Top bar (minimal editorial)
 function TBTop({ page, setPage, lang, setLang }) {
   const sections = ["home", "about", "projects", "services", "products", "contact"];
+  const [menuOpen, setMenuOpen] = useState(false);
+  const go = (s) => { setPage(s); setMenuOpen(false); };
   return (
     <header className="tb-top">
       <div className="tb-top-meta">
@@ -27,7 +29,7 @@ function TBTop({ page, setPage, lang, setLang }) {
         </span>
       </div>
       <div className="tb-top-bar">
-        <button className="tb-brand" onClick={() => setPage("home")}>
+        <button className="tb-brand" onClick={() => go("home")}>
           <TBLogoMark size={32} />
           <div>
             <div className="tb-brand-name">A22<span className="tb-brand-thin">INVESTMENTS</span></div>
@@ -38,7 +40,7 @@ function TBTop({ page, setPage, lang, setLang }) {
           {sections.map(s => (
             <button key={s}
               className={`tb-nav-item ${page === s ? "is-on" : ""}`}
-              onClick={() => setPage(s)}>
+              onClick={() => go(s)}>
               {t(C.nav[s], lang)}
             </button>
           ))}
@@ -49,7 +51,26 @@ function TBTop({ page, setPage, lang, setLang }) {
             <span>·</span>
             <button className={lang === "en" ? "is-on" : ""} onClick={() => setLang("en")}>English</button>
           </div>
+          <button className="tb-burger" aria-label={lang === "es" ? "Menú" : "Menu"}
+                  aria-expanded={menuOpen} onClick={() => setMenuOpen(o => !o)}>
+            <span className={`tb-burger-ico ${menuOpen ? "is-open" : ""}`}><i></i><i></i><i></i></span>
+          </button>
         </div>
+      </div>
+
+      <div className={`tb-mobile-nav ${menuOpen ? "is-open" : ""}`}>
+        <nav>
+          {sections.map((s, i) => (
+            <button key={s}
+              className={`tb-mobile-link ${page === s ? "is-on" : ""}`}
+              onClick={() => go(s)}>
+              <span className="tb-mono tb-dim">{String(i + 1).padStart(2, "0")}</span>
+              <span>{t(C.nav[s], lang)}</span>
+              <span aria-hidden>→</span>
+            </button>
+          ))}
+        </nav>
+        <a className="tb-mobile-cta" href="mailto:info@a22investments.com">info@a22investments.com</a>
       </div>
     </header>
   );
