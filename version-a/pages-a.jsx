@@ -71,8 +71,11 @@ function BlueprintBand({ lang }) {
   return (
     <section className="ops-blueprint">
       <div className="ops-blueprint-head">
-        <span className="ops-mono">A22 · {lang === "es" ? "DISPOSICIÓN GENERAL" : "GENERAL ARRANGEMENT"}</span>
-        <span className="ops-mono ops-bp-dim">DWG. Nº A22-NV-001 · REV. C · MIA</span>
+        <span className="ops-blueprint-id">
+          <img src="img/a22-mark.png" alt="" className="ops-bp-mark" />
+          <span className="ops-mono">A22 · {lang === "es" ? "DISPOSICIÓN GENERAL" : "GENERAL ARRANGEMENT"}</span>
+        </span>
+        <span className="ops-mono ops-bp-dim">DWG. Nº A22-NV-001 · REV. C · {lang === "es" ? "ING. NAVAL" : "NAVAL ENG."} · MIA</span>
       </div>
       <div className="ops-blueprint-title">
         <h2>{lang === "es" ? "Cada sistema, de proa a popa." : "Every system, bow to stern."}</h2>
@@ -214,6 +217,12 @@ function PageServices({ lang, setPage }) {
 }
 
 // ── Page: Capabilities (products)
+const CAP_IMGS = [
+  "img/cap-naval.jpg",
+  "img/cap-elec.jpg",
+  "img/cap-ups.jpg",
+  "img/cap-infra.jpg",
+];
 function PageProducts({ lang, setPage }) {
   const [active, setActive] = useState(0);
   const prod = A_.products.list[active];
@@ -232,9 +241,14 @@ function PageProducts({ lang, setPage }) {
           </div>
           <div className="ops-prod-panel">
             <div className="ops-prod-panel-head">
-              <span className="ops-mono">{prod.code}</span>
-              <h3>{ttx(prod.title, lang)}</h3>
-              <p className="ops-prod-short">{ttx(prod.short, lang)}</p>
+              <div className="ops-prod-panel-text">
+                <span className="ops-mono">{prod.code}</span>
+                <h3>{ttx(prod.title, lang)}</h3>
+                <p className="ops-prod-short">{ttx(prod.short, lang)}</p>
+              </div>
+              <div className="ops-prod-media">
+                <img src={CAP_IMGS[active]} alt={ttx(prod.title, lang)} loading="lazy" />
+              </div>
             </div>
             <ul className="ops-prod-items">
               {prod.items[lang].map((it, i) => (

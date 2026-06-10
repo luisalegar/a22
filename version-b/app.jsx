@@ -6,10 +6,10 @@ const { useState, useEffect, useRef } = React;
 const C = window.A22_CONTENT;
 const t = window.t;
 
-// ── Logo mark (real A22 symbol)
+// ── Logo mark (official A22 symbol)
 function TBLogoMark({ size = 28 }) {
   return (
-    <img src="img/a22-symbol-t.png" width={size} height={size}
+    <img src="img/a22-mark.png" width={size} height={size}
          alt="A22 Investments" style={{ display: "block", objectFit: "contain" }} />
   );
 }
@@ -22,7 +22,7 @@ function TBTop({ page, setPage, lang, setLang }) {
   return (
     <header className="tb-top">
       <div className="tb-top-meta">
-        <span>A22 INVESTMENTS LLC · {lang === "es" ? "DIVISIÓN NAVAL Y PORTUARIA" : "NAVAL & PORT DIVISION"}</span>
+        <span>A22 INVESTMENTS LLC · {lang === "es" ? "INGENIERÍA NAVAL Y PORTUARIA" : "NAVAL & PORT ENGINEERING"}</span>
         <span className="tb-top-meta-mid">MIAMI, FL · +30 AÑOS</span>
         <span>
           {lang === "es" ? "PUERTA DE LAS AMÉRICAS · BILINGÜE" : "GATEWAY TO THE AMERICAS · BILINGUAL"}
@@ -33,7 +33,7 @@ function TBTop({ page, setPage, lang, setLang }) {
           <TBLogoMark size={32} />
           <div>
             <div className="tb-brand-name">A22<span className="tb-brand-thin">INVESTMENTS</span></div>
-            <div className="tb-brand-sub">{lang === "es" ? "Industria naval y portuaria" : "Naval & port industry"}</div>
+            <div className="tb-brand-sub">{lang === "es" ? "Ingeniería naval y portuaria" : "Naval & port engineering"}</div>
           </div>
         </button>
         <nav className="tb-nav">
@@ -98,7 +98,7 @@ function TBHome({ lang, setPage }) {
       <section className="tb-hero">
         <div className="tb-hero-copy">
           <div className="tb-hero-kicker">
-            <span>A22 · {lang === "es" ? "INDUSTRIA NAVAL Y PORTUARIA" : "NAVAL & PORT INDUSTRY"}</span>
+            <span>A22 · {lang === "es" ? "INGENIERÍA NAVAL Y PORTUARIA" : "NAVAL & PORT ENGINEERING"}</span>
           </div>
           <h1 className="tb-hero-title">{t(C.hero.titleB, lang)}</h1>
           <p className="tb-hero-lede">{t(C.hero.sub, lang)}</p>
@@ -118,9 +118,10 @@ function TBHome({ lang, setPage }) {
             <div className="tb-hero-dwg-view"><TopPlan lang={lang} annotate={true} /></div>
           </div>
           <div className="tb-hero-dwg-block">
+            <img src="img/a22-mark.png" alt="" className="tb-dwg-mark" />
             <span className="tb-mono">DWG. Nº A22-NV-001</span>
             <span className="tb-mono">{lang === "es" ? "DISPOSICIÓN GENERAL" : "GENERAL ARRANGEMENT"}</span>
-            <span className="tb-mono">MIAMI, FL · +30 {lang === "es" ? "AÑOS" : "YRS"}</span>
+            <span className="tb-mono">{lang === "es" ? "ING. NAVAL · MIAMI, FL" : "NAVAL ENG. · MIAMI, FL"}</span>
           </div>
         </div>
       </section>
@@ -229,6 +230,16 @@ function TBAbout({ lang, setPage }) {
           <div className="tb-article-body">
             <p className="tb-lede">{t(C.about.body1, lang)}</p>
             <p>{t(C.about.body2, lang)}</p>
+            <div className="tb-article-photos">
+              <figure>
+                <img src="img/team-engine.jpg" alt={lang === "es" ? "Técnicos trabajando en sala de máquinas" : "Technicians working in the engine room"} loading="lazy" />
+                <figcaption className="tb-mono tb-dim">{lang === "es" ? "EQUIPO TÉCNICO · SALA DE MÁQUINAS" : "TECHNICAL TEAM · ENGINE ROOM"}</figcaption>
+              </figure>
+              <figure>
+                <img src="img/shaft-lathe.jpg" alt={lang === "es" ? "Mecanizado de eje en torno" : "Shaft machining on lathe"} loading="lazy" />
+                <figcaption className="tb-mono tb-dim">{lang === "es" ? "MECANIZADO DE EJE · TALLER" : "SHAFT MACHINING · WORKSHOP"}</figcaption>
+              </figure>
+            </div>
           </div>
           <aside className="tb-article-side">
             <div className="tb-side-card">
@@ -306,6 +317,20 @@ function TBServices({ lang, setPage }) {
               <div className="tb-svc-row-arrow" aria-hidden>→</div>
             </article>
           ))}
+        </div>
+        <div className="tb-svc-photos">
+          <figure>
+            <img src="img/winch-lift.jpg" alt={lang === "es" ? "Izamiento de winche con grúa a bordo" : "Winch lift by crane aboard"} loading="lazy" />
+            <figcaption className="tb-mono tb-dim">{lang === "es" ? "IZAMIENTO DE WINCHE · A BORDO" : "WINCH LIFT · ABOARD"}</figcaption>
+          </figure>
+          <figure>
+            <img src="img/nozzle-hull.jpg" alt={lang === "es" ? "Tobera bajo el casco en dique seco" : "Nozzle under hull in drydock"} loading="lazy" />
+            <figcaption className="tb-mono tb-dim">{lang === "es" ? "TOBERA KORT · DIQUE SECO" : "KORT NOZZLE · DRYDOCK"}</figcaption>
+          </figure>
+          <div className="tb-svc-photos-note">
+            <span className="tb-mono">{lang === "es" ? "REGISTRO DE OBRA" : "WORK RECORD"}</span>
+            <p>{lang === "es" ? "Ejecutamos donde esté la embarcación: a flote, en muelle o en dique seco." : "We execute wherever the vessel is: afloat, at the dock or in drydock."}</p>
+          </div>
         </div>
       </section>
       <TBLogistics lang={lang} />
@@ -613,10 +638,17 @@ function TBFinal({ lang, setPage }) {
     <section className="tb-final">
       <div className="tb-final-inner">
         <div className="tb-final-mark">
-          <TBLogoMark size={36} />
+          <TBLogoMark size={44} />
         </div>
         <h2>{lang === "es" ? "Mantenga su embarcación operativa." : "Keep your vessel operational."}</h2>
         <p>{lang === "es" ? "Cuéntenos qué necesita y le respondemos con una propuesta técnica y comercial." : "Tell us what you need and we will reply with a technical and commercial proposal."}</p>
+        <div className="tb-assure">
+          <span>{lang === "es" ? "+30 años de ingeniería naval" : "30+ years of naval engineering"}</span>
+          <span aria-hidden>·</span>
+          <span>{lang === "es" ? "Proveedores certificados" : "Certified suppliers"}</span>
+          <span aria-hidden>·</span>
+          <span>{lang === "es" ? "Respuesta en 24 h" : "Response within 24 h"}</span>
+        </div>
         <div className="tb-final-ctas">
           <button className="tb-btn tb-btn-primary" onClick={() => setPage("contact")}>
             {t(C.hero.primaryCta, lang)} <span aria-hidden>→</span>
@@ -635,11 +667,8 @@ function TBFooter({ lang, setPage }) {
     <footer className="tb-footer">
       <div className="tb-footer-top">
         <div className="tb-footer-brand">
-          <TBLogoMark size={36} />
-          <div>
-            <div className="tb-brand-name" style={{ fontSize: 22 }}>A22<span className="tb-brand-thin">INVESTMENTS</span></div>
-            <div className="tb-footer-note">{t(C.footer.note, lang)}</div>
-          </div>
+          <img src="img/a22-lockup.png" alt="A22 Investments" className="tb-footer-lockup" />
+          <div className="tb-footer-note">{t(C.footer.note, lang)}</div>
         </div>
         <div className="tb-footer-cols">
           <div>

@@ -4,7 +4,7 @@
 const A22_CONTENT = {
   brand: {
     name: "A22 INVESTMENTS",
-    tagline: { es: "Industria naval y portuaria · Eléctrica · Procura especializada", en: "Naval & port industry · Electrical · Specialized procurement" },
+    tagline: { es: "Ingeniería naval · Procura especializada · Trabajos a bordo", en: "Naval engineering · Specialized procurement · Onboard works" },
     location: { es: "Miami, Florida · EE.UU.", en: "Miami, Florida · USA" },
   },
   nav: {
@@ -20,8 +20,8 @@ const A22_CONTENT = {
     titleA: { es: "Servicio integral para buques que no pueden detenerse.", en: "Integral service for vessels that cannot stop." },
     titleB: { es: "Soluciones especializadas para la industria naval y portuaria.", en: "Specialized solutions for the naval and port industry." },
     sub: {
-      es: "Atendemos cada necesidad de su embarcación en el tiempo que exige el negocio marítimo.",
-      en: "We handle every need of your vessel in the time the maritime business demands.",
+      es: "Ingeniería, procura y trabajos a bordo, en el tiempo que exige el negocio marítimo.",
+      en: "Engineering, procurement and onboard works, in the time the maritime business demands.",
     },
     primaryCta: { es: "Solicitar cotización", en: "Request a quote" },
     secondaryCta: { es: "Ver capacidades", en: "See capabilities" },
@@ -70,7 +70,7 @@ const A22_CONTENT = {
     title: { es: "Seis disciplinas, una operación integral.", en: "Six disciplines, one integral operation." },
     sub: { es: "De la dirección técnica a la entrega a bordo.", en: "From technical direction to onboard delivery." },
     list: [
-      { num: "S/01", title: { es: "Dirección técnica e ingeniería", en: "Technical direction & engineering" }, desc: { es: "Diseño, construcción, reparación y modificación de buques y artefactos marinos.", en: "Design, construction, repair and modification of vessels and marine artifacts." } },
+      { num: "S/01", title: { es: "Ingeniería y dirección técnica", en: "Engineering & technical direction" }, desc: { es: "Diseño, construcción, reparación y modificación de buques y artefactos marinos.", en: "Design, construction, repair and modification of vessels and marine artifacts." } },
       { num: "S/02", title: { es: "Procura de partes y repuestos", en: "Parts & spares procurement" }, desc: { es: "Insumos, partes y repuestos para todos los sistemas del buque.", en: "Supplies, parts and spares for every vessel system." } },
       { num: "S/03", title: { es: "Trabajos a bordo", en: "Onboard works" }, desc: { es: "Ejecutamos a bordo, donde esté la embarcación, para reducir paradas.", en: "We work aboard, wherever the vessel is, to reduce downtime." } },
       { num: "S/04", title: { es: "Apoyo Logístico Integrado (ILS)", en: "Integrated Logistics Support (ILS)" }, desc: { es: "Adquisición y sostenimiento: aprovisionamiento, mantenimiento, herramientas y piezas.", en: "Acquisition and sustainment: provisioning, maintenance, tools and parts." } },
@@ -195,7 +195,7 @@ const A22_CONTENT = {
   },
   footer: {
     rights: { es: "Todos los derechos reservados.", en: "All rights reserved." },
-    note: { es: "A22 Investments LLC · Industria naval y portuaria", en: "A22 Investments LLC · Naval & port industry" },
+    note: { es: "A22 Investments LLC · Ingeniería naval y portuaria", en: "A22 Investments LLC · Naval & port engineering" },
   },
 };
 

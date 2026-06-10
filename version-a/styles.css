@@ -3,6 +3,15 @@
    Industrial nocturno: deep navy ink, cyan accent, mono indices.
    ─────────────────────────────────────────────────────────────── */
 
+/* ── Brand font (official wordmark) ── */
+@font-face {
+  font-family: "Libel Suit";
+  src: url("fonts/LibelSuit.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --ops-bg:        #07101C;
   --ops-bg-2:      #0B1929;
@@ -77,12 +86,13 @@ button { font-family: inherit; cursor: pointer; }
   padding: 0;
 }
 .ops-brand-name {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 15px;
-  letter-spacing: 0.03em;
+  font-family: "Libel Suit", var(--font-display);
+  font-weight: 400;
+  font-size: 17px;
+  letter-spacing: 0.02em;
+  color: #8FCBDF;
 }
-.ops-brand-thin { font-weight: 300; opacity: 0.7; margin-left: 2px; }
+.ops-brand-thin { font-weight: 400; opacity: 1; color: var(--ops-ink); margin-left: 3px; }
 
 .ops-nav {
   display: flex;
@@ -458,6 +468,8 @@ button { font-family: inherit; cursor: pointer; }
   letter-spacing: 0.14em;
 }
 .ops-bp-dim { color: rgba(157,230,246,0.5); }
+.ops-blueprint-id { display: inline-flex; align-items: center; gap: 10px; }
+.ops-bp-mark { width: 24px; height: 24px; object-fit: contain; display: block; }
 .ops-blueprint-title { margin: 26px 0 30px; max-width: 60ch; }
 .ops-blueprint-title h2 {
   font-family: var(--font-display);
@@ -1027,10 +1039,30 @@ button { font-family: inherit; cursor: pointer; }
 }
 .ops-prod-panel-head {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
   padding-bottom: 24px;
   border-bottom: 1px solid var(--ops-line);
+}
+.ops-prod-panel-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+.ops-prod-media {
+  flex: 0 0 auto;
+  border: 1px solid var(--ops-line);
+  background: #0a121c;
+  padding: 5px;
+}
+.ops-prod-media img {
+  display: block;
+  width: min(270px, 30vw);
+  height: auto;
+  filter: saturate(0.92) contrast(1.02);
 }
 .ops-prod-panel-head .ops-mono { color: var(--ops-cyan); }
 .ops-prod-panel-head h3 {
@@ -1459,6 +1491,8 @@ button { font-family: inherit; cursor: pointer; }
   .ops-footer-cols { grid-template-columns: 1fr; gap: 24px; }
   .ops-footer-bottom { flex-direction: column; gap: 8px; }
   .ops-work-media { height: 200px; }
+  .ops-prod-panel-head { flex-direction: column; align-items: flex-start; }
+  .ops-prod-media img { width: min(270px, 76vw); }
   .ops-person-links { flex-direction: column; gap: 2px; }
   .ops-top-marquee { font-size: 9px; }
 }

@@ -32,10 +32,10 @@ const A22_A = {
   hero: {
     status: { es: "OPERATIVO 24/7", en: "OPERATIONAL 24/7", pt: "OPERACIONAL 24/7", nl: "24/7 OPERATIONEEL" },
     eyebrow: {
-      es: "Industria naval y portuaria · Miami, FL",
-      en: "Naval & port industry · Miami, FL",
-      pt: "Indústria naval e portuária · Miami, FL",
-      nl: "Maritieme & havenindustrie · Miami, FL",
+      es: "Ingeniería naval y portuaria · Miami, FL",
+      en: "Naval & port engineering · Miami, FL",
+      pt: "Engenharia naval e portuária · Miami, FL",
+      nl: "Maritieme & haven-engineering · Miami, FL",
     },
     title: {
       es: "Mantenemos su flota operativa, en cualquier puerto del mundo.",

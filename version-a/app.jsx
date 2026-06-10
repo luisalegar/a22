@@ -15,7 +15,7 @@ window.tt = tt;
 // ── Logo (real A22 symbol, transparent)
 function LogoMark({ size = 26 }) {
   return (
-    <img src="img/a22-symbol-t.png" width={size} height={size}
+    <img src="img/a22-mark.png" width={size} height={size}
          alt="A22 Investments" style={{ display: "block", objectFit: "contain" }} />
   );
 }
